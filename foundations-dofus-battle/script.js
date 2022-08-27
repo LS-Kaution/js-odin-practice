@@ -1,6 +1,6 @@
-const OCHER_DOFUS = 'Ocher Dofus'
-const TURQUOISE_DOFUS = 'Turquoise Dofus'
-const EMERALD_DOFUS = 'Emerald Dofus'
+const OCHER_DOFUS = document.getElementById('ocher-Dofus')
+const TURQUOISE_DOFUS = document.getElementById('turquoise-Dofus')
+const EMERALD_DOFUS = document.getElementById('emerald-Dofus')
 
 const win = 'You Win!'
 const lose = 'You Lose!'
@@ -52,7 +52,7 @@ function playRound(playerSelection, computerSelection) {
 
 function veganGame() {
     for (let i = 0; i <= 5; i++) {
-        let result = playRound(TURQUOISE_DOFUS, getComputerChoice())
+        let result = playRound(EMERALD_DOFUS, getComputerChoice())
 
         if (result === win) {
             pointsPlayer++
