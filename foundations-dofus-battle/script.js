@@ -1,16 +1,11 @@
-function startGame() {
-    const OCHER_DOFUS = document.getElementById('ocher-Dofus')
-    OCHER_DOFUS.addEventListener('click', ocher)
-
-    const TURQUOISE_DOFUS = document.getElementById('turquoise-Dofus')
-    TURQUOISE_DOFUS.addEventListener('click', turquoise)
-
-    const EMERALD_DOFUS = document.getElementById('emerald-Dofus')  
-    EMERALD_DOFUS.addEventListener('click', emerald)
-}
 const OCHER_DOFUS = document.getElementById('ocher-Dofus')
+OCHER_DOFUS.addEventListener('click', ocher)
+
 const TURQUOISE_DOFUS = document.getElementById('turquoise-Dofus')
+TURQUOISE_DOFUS.addEventListener('click', turquoise)
+
 const EMERALD_DOFUS = document.getElementById('emerald-Dofus')
+EMERALD_DOFUS.addEventListener('click', emerald)
 
 const win = 'You Win!'
 const lose = 'You Lose!'
@@ -40,7 +35,7 @@ function getComputerChoice() {
     }
 }
 
-function ocher(){
+function ocher() {
     selection = playRound(OCHER_DOFUS, getComputerChoice())
     veganGame()
 }
@@ -78,25 +73,31 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function veganGame() {
-    for (let i = 0; i <= 5; i++) {
-        if (selection === win) {
-            pointsPlayer++
-            playerValue.innerHTML = `${pointsPlayer}`
-        }
-
-        if(selection === lose) {
-            pointsEnemy++
-            enemyValue.innerHTML = `${pointsEnemy}`
-        }
+    if (selection === win) {
+        pointsPlayer++
+        playerValue.innerHTML = `${pointsPlayer}`
     }
+
+    if (selection === lose) {
+        pointsEnemy++
+        enemyValue.innerHTML = `${pointsEnemy}`
+    }
+
+    lifes()
 }
 
 function lifes() {
-    if (pointsPlayer === 5) {
-        return 'You Win the game Adventurer'
+    if (pointsPlayer === 3) {
+        console.log('You Win the game Adventurer')
+        OCHER_DOFUS.disabled = true
+        TURQUOISE_DOFUS.disabled = true
+        EMERALD_DOFUS.disabled = true
     }
 
-    if (pointsEnemy === 5) {
-        return 'You Lose the game Adventurer'
+    if (pointsEnemy === 3) {
+        console.log('You Lose the game Adventurer')
+        OCHER_DOFUS.disabled = true
+        TURQUOISE_DOFUS.disabled = true
+        EMERALD_DOFUS.disabled = true
     }
 }
