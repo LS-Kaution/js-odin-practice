@@ -1,3 +1,13 @@
+function startGame() {
+    const OCHER_DOFUS = document.getElementById('ocher-Dofus')
+    OCHER_DOFUS.addEventListener('click', ocher)
+
+    const TURQUOISE_DOFUS = document.getElementById('turquoise-Dofus')
+    TURQUOISE_DOFUS.addEventListener('click', turquoise)
+
+    const EMERALD_DOFUS = document.getElementById('emerald-Dofus')  
+    EMERALD_DOFUS.addEventListener('click', emerald)
+}
 const OCHER_DOFUS = document.getElementById('ocher-Dofus')
 const TURQUOISE_DOFUS = document.getElementById('turquoise-Dofus')
 const EMERALD_DOFUS = document.getElementById('emerald-Dofus')
@@ -5,6 +15,8 @@ const EMERALD_DOFUS = document.getElementById('emerald-Dofus')
 const win = 'You Win!'
 const lose = 'You Lose!'
 const draw = 'Draw'
+
+let selection
 
 let pointsPlayer = 0
 let pointsEnemy = 0
@@ -26,6 +38,21 @@ function getComputerChoice() {
     else {
         return EMERALD_DOFUS
     }
+}
+
+function ocher(){
+    selection = playRound(OCHER_DOFUS, getComputerChoice())
+    veganGame()
+}
+
+function turquoise() {
+    selection = playRound(TURQUOISE_DOFUS, getComputerChoice())
+    veganGame()
+}
+
+function emerald() {
+    selection = playRound(EMERALD_DOFUS, getComputerChoice())
+    veganGame()
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -52,24 +79,19 @@ function playRound(playerSelection, computerSelection) {
 
 function veganGame() {
     for (let i = 0; i <= 5; i++) {
-        let result = playRound(EMERALD_DOFUS, getComputerChoice())
-
-        if (result === win) {
+        if (selection === win) {
             pointsPlayer++
             playerValue.innerHTML = `${pointsPlayer}`
         }
 
-        if(result === lose) {
+        if(selection === lose) {
             pointsEnemy++
             enemyValue.innerHTML = `${pointsEnemy}`
         }
     }
 }
 
-veganGame()
-
 function lifes() {
-
     if (pointsPlayer === 5) {
         return 'You Win the game Adventurer'
     }
