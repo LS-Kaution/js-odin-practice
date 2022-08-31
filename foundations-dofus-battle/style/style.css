@@ -81,4 +81,10 @@ body {
     border-radius: 10px;
     background-color: blue;
     color: white;
+    transition: 0.5s;
+}
+
+#reset-game:hover {
+    padding: 20px;
+    transition: 0.5s;
 }

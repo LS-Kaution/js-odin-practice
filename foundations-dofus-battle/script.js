@@ -7,6 +7,9 @@ TURQUOISE_DOFUS.addEventListener('click', turquoise)
 const EMERALD_DOFUS = document.getElementById('emerald-Dofus')
 EMERALD_DOFUS.addEventListener('click', emerald)
 
+const resetButton = document.getElementById('reset-game')
+resetButton.addEventListener('click', resetGame)
+
 const win = 'You Win!'
 const lose = 'You Lose!'
 const draw = 'Draw'
@@ -88,16 +91,20 @@ function veganGame() {
 
 function lifes() {
     if (pointsPlayer === 3) {
-        console.log('You Win the game Adventurer')
+        alert('You Win the game Adventurer')
         OCHER_DOFUS.disabled = true
         TURQUOISE_DOFUS.disabled = true
         EMERALD_DOFUS.disabled = true
     }
 
     if (pointsEnemy === 3) {
-        console.log('You Lose the game Adventurer')
+        alert('You Lose the game Adventurer')
         OCHER_DOFUS.disabled = true
         TURQUOISE_DOFUS.disabled = true
         EMERALD_DOFUS.disabled = true
     }
+}
+
+function resetGame() {
+    location.reload()
 }
